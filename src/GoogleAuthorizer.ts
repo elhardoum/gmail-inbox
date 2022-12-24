@@ -12,7 +12,7 @@ interface ClientCredentials {
 }
 
 // If modifying these scopes, delete token.json.
-const scopes = ['https://www.googleapis.com/auth/gmail.readonly'];
+const scopes = ['https://www.googleapis.com/auth/gmail.modify'];
 
 export const authorizeAccount = async (credentialsJsonPath: string, tokenPath: string): Promise<OAuth2Client> => {
   const credentials = getCredentials(credentialsJsonPath);
