@@ -28,13 +28,13 @@ export const formatMessage = (message: { data: gmail_v1.Schema$Message }): Messa
 
 const getHeader = (
   name: string,
-  headers: Array<{ name?: string | undefined; value?: string | undefined }> | undefined,
+  headers: gmail_v1.Schema$MessagePartHeader[] | undefined
 ) => {
   if (!headers) {
     return;
   }
   const header = headers.find(h => h.name === name);
-  return header && header.value;
+  return header && header.value != null ? header.value : undefined;
 };
 
 const getMessageBody = (message: { data: gmail_v1.Schema$Message }) => {

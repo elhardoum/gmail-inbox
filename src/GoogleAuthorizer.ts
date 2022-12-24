@@ -1,5 +1,5 @@
 import { OAuth2Client } from 'google-auth-library';
-import { google, oauth2_v1 } from 'googleapis';
+import { google } from 'googleapis';
 
 import { readFileSync, writeFileSync } from 'fs';
 import * as path from 'path';
@@ -38,7 +38,7 @@ const getCredentials = (credentialsJsonPath: string): ClientCredentials => {
     const credentialsString = readFileSync(credentialsJsonPath, { encoding: 'utf8' });
     allCredentials = JSON.parse(credentialsString);
   } catch (e) {
-    log('Unable to find or parse credentials json file:', e.message);
+    log('Unable to find or parse credentials json file:', (e as Error).message);
   }
   const credentialsDataKey: string = Object.keys(allCredentials)[0];
   if (!credentialsDataKey) {

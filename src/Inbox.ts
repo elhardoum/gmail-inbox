@@ -54,7 +54,7 @@ export class Inbox implements InboxMethods {
             return;
           }
 
-          resolve(result?.data.labels);
+          resolve(result?.data.labels as Label[]);
         },
       );
     });
