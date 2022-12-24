@@ -342,4 +342,8 @@ export class Inbox implements InboxMethods {
 
     return [year, month, day].join('/');
   }
+
+  public getApiClient() : gmail_v1.Gmail {
+    return this.gmailApi;
+  }
 }
